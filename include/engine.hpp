@@ -22,12 +22,7 @@ private:
 public:
     LOBEngine() = default;
 
-    // Standard Level 1 Micro-Price
     double calculateMicroPrice(const OrderBookSnapshot& snapshot);
-    
-    // alpha controls the decay rate
     double calculateDepthMicroPrice(const OrderBookSnapshot& snapshot, double alpha = 0.5);
-    
-    // Order Flow Imbalance
     double calculateOFI(const OrderBookSnapshot& current);
 };
