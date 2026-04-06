@@ -31,7 +31,7 @@ double LOBEngine::calculateDepthMicroPrice(const OrderBookSnapshot& snapshot, do
         total_bid_weight += weight;
     }
 
-    // Calculates depth for asks
+    //Calculates depth for asks
     for (size_t i = 0; i < snapshot.asks.size(); ++i) {
         double weight = std::exp(-alpha * i);
         weighted_ask_sum += snapshot.asks[i].quantity * weight;
@@ -47,7 +47,7 @@ double LOBEngine::calculateDepthMicroPrice(const OrderBookSnapshot& snapshot, do
     double total_eff_vol = V_b_eff + V_a_eff;
     if (total_eff_vol == 0.0) return (P_b + P_a) / 2.0;
 
-    //Pulling the price toward the heavier side
+    //Pulling the price to the heavier side
     return ((V_b_eff * P_a) + (V_a_eff * P_b)) / total_eff_vol;
 }
 
